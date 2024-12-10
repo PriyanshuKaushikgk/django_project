@@ -1,0 +1,25 @@
+body{
+    background-image: url(../image/download.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.img-thumbnail {
+    padding: .5rem; 
+    background-color: black;
+    border: 10px solid green;
+    border-radius: 10rem;
+
+    max-width: 100%;
+    height: auto;
+}
+
+p{
+    color: white;
+    font-size: larger;
+    
+}
+
+#gp{
+    
+    width: 100%;
+}
