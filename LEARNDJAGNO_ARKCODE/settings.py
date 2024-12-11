@@ -136,6 +136,35 @@ USE_I18N = True
 USE_TZ = True
 
 
+
+# EMAIL_HOST='smtp.gmail.com'
+# EMAIL_HOST_USER = 'priyanshukaushik6919@gmail.com'
+# EMAIL_HOST_PASSWORD='tntd scfs ogbx smua'
+# EMAIL_PORT=587
+# EMAIL_USE_TLS=True  
+# EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'\
+
+
+
+
+
+# EMAIL_DEBUG = Truec
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import os
 
 # Static files (CSS, JavaScript, Images)
@@ -143,6 +172,12 @@ import os
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+
+
+
+
+MEDIA_URL='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
