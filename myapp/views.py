@@ -2,7 +2,7 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
-from .models import Contact
+from .models import Contact,Blogs
 # below import is done for sending mails(smtp)
 # from django.conf import settings
 # from django.core.mail import send_mail
@@ -93,6 +93,31 @@ def handlelogout(request):
     logout(request)
     messages.info(request,"Logout Success")
     return redirect('/login')
+
+
+def handleBlog(request):
+    if not request.user.is_authenticated:
+        messages.warning(request,"Hey just login and Use My Website...")
+        return redirect('/login')
+    allPosts=Blogs.objects.all()
+    context = {'allPosts':allPosts}
+    print(allPosts)
+    return render(request,'blog.html',context)
+
+
+def search(request):
+    query=request.GET['search']
+    if len(query)>100:
+        allPosts=Blogs.objects.none()
+    else:
+        allPostsTitle=Blogs.objects.filter(title__icontains=query)
+        allPostsDescription=Blogs.objects.filter(description__icontains=query)
+        allPosts=allPostsTitle.union(allPostsDescription)
+    if allPosts.count()==0:
+        messages.warning(request,"No Search Results")
+    params={'allPosts':allPosts,'query':query}
+
+    return render(request,'search.html',params)
 
 
 
