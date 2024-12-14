@@ -61,6 +61,12 @@ MIDDLEWARE = [
 
 AUTHENTICATION_BACKENDS = ( 'django.contrib.auth.backends.ModelBackend', 'allauth.account.auth_backends.AuthenticationBackend', )
 
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+
+
+
 
 SITE_ID = 2
 LOGIN_REDIRECT_URL = '/'
@@ -137,18 +143,18 @@ USE_TZ = True
 
 
 
-# EMAIL_HOST='smtp.gmail.com'
-# EMAIL_HOST_USER = 'priyanshukaushik6919@gmail.com'
-# EMAIL_HOST_PASSWORD='tntd scfs ogbx smua'
-# EMAIL_PORT=587
-# EMAIL_USE_TLS=True  
-# EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'\
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER = 'priyanshukaushik6919@gmail.com'
+EMAIL_HOST_PASSWORD='tntd scfs ogbx smua'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True  
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'\
 
 
 
 
 
-# EMAIL_DEBUG = Truec
+EMAIL_DEBUG = True
 
 
 

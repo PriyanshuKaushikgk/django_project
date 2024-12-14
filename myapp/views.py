@@ -4,10 +4,10 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from .models import Contact,Blogs
 # below import is done for sending mails(smtp)
-# from django.conf import settings
-# from django.core.mail import send_mail
-# from django.core import mail
-# from django.core.mail.message import EmailMessage
+from django.conf import settings
+from django.core.mail import send_mail
+from django.core import mail
+from django.core.mail.message import EmailMessage
 
 # Create your views here.
 def index(request):
@@ -28,12 +28,12 @@ def contact(request):
         query.save()
 
         # emails sending starts from here
-        # from_email =settings.EMAIL_HOST_USER
-        # connection=mail.get_connection()
-        # connection.open()
-        # email_message = mail.EmailMessage(f'Email from {fname}',f'UserEmail:{femail}\nUserPhoneNumber:{phone}\n\n\n QUERY: {desc}', from_email,['priyanshukaushi6919@gmail.com'],connection=connection)
-        # connection.send_message([email_message])
-        # connection.close()
+        from_email =settings.EMAIL_HOST_USER
+        connection=mail.get_connection()
+        connection.open()
+        email_message = mail.EmailMessage(f'Email from {fname}',f'UserEmail:{femail}\nUserPhoneNumber:{phone}\n\n\n QUERY: {desc}', from_email,['priyanshukaushi6919@gmail.com'],connection=connection)
+        connection.send_message([email_message])
+        connection.close()
         
         messages.info(request,"Thanks, For Reaching Us! We will get back You Soon.........")
         return redirect('/contact')
